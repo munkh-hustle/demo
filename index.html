@@ -3,1014 +3,526 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WorkCulture - Аж ахуйн нэгжийн уур амьсгалын платформ</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* Header */
-        header {
-            background: white;
-            padding: 20px 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .logo {
-            font-size: 28px;
-            font-weight: bold;
-            color: #667eea;
-        }
-
-        .logo span {
-            color: #764ba2;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: #667eea;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 12px 30px;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: 600;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
-        }
-
-        /* Hero Section */
-        .hero {
-            background: white;
-            margin: 30px auto;
-            padding: 60px 40px;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-        }
-
-        .hero h1 {
-            font-size: 42px;
-            color: #333;
-            margin-bottom: 20px;
-            line-height: 1.3;
-        }
-
-        .hero h1 span {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero p {
-            font-size: 18px;
-            color: #666;
-            max-width: 800px;
-            margin: 0 auto 30px;
-            line-height: 1.6;
-        }
-
-        .search-box {
-            display: flex;
-            max-width: 700px;
-            margin: 0 auto;
-            gap: 15px;
-        }
-
-        .search-box input {
-            flex: 1;
-            padding: 18px 25px;
-            border: 2px solid #e0e0e0;
-            border-radius: 30px;
-            font-size: 16px;
-            outline: none;
-            transition: border-color 0.3s;
-        }
-
-        .search-box input:focus {
-            border-color: #667eea;
-        }
-
-        /* Stats Section */
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin: 50px 0;
-        }
-
-        .stat-card {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-        }
-
-        .stat-number {
-            font-size: 36px;
-            font-weight: bold;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .stat-label {
-            color: #666;
-            margin-top: 10px;
-            font-size: 16px;
-        }
-
-        /* Reviews Section */
-        .reviews-section {
-            background: white;
-            padding: 50px 40px;
-            border-radius: 20px;
-            margin: 30px auto;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-        }
-
-        .section-title {
-            font-size: 32px;
-            color: #333;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .review-card {
-            border: 1px solid #e0e0e0;
-            border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 25px;
-            transition: box-shadow 0.3s;
-        }
-
-        .review-card:hover {
-            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
-        }
-
-        .review-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 15px;
-        }
-
-        .company-info {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .company-logo {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 24px;
-        }
-
-        .company-details h3 {
-            color: #333;
-            font-size: 20px;
-            margin-bottom: 5px;
-        }
-
-        .company-details p {
-            color: #888;
-            font-size: 14px;
-        }
-
-        .rating {
-            display: flex;
-            gap: 5px;
-        }
-
-        .star {
-            color: #ffc107;
-            font-size: 20px;
-        }
-
-        .star.empty {
-            color: #e0e0e0;
-        }
-
-        .review-tags {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 15px;
-            flex-wrap: wrap;
-        }
-
-        .tag {
-            background: #f0f0f0;
-            padding: 6px 15px;
-            border-radius: 20px;
-            font-size: 13px;
-            color: #666;
-        }
-
-        .tag.positive {
-            background: #e8f5e9;
-            color: #2e7d32;
-        }
-
-        .tag.negative {
-            background: #ffebee;
-            color: #c62828;
-        }
-
-        .review-content {
-            color: #444;
-            line-height: 1.7;
-            margin-bottom: 15px;
-        }
-
-        .review-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-top: 15px;
-            border-top: 1px solid #e0e0e0;
-            color: #888;
-            font-size: 14px;
-        }
-
-        .reviewer-info {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .avatar {
-            width: 35px;
-            height: 35px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-        }
-
-        .helpful-btn {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            background: none;
-            border: 1px solid #e0e0e0;
-            padding: 8px 15px;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: all 0.3s;
-            color: #666;
-        }
-
-        .helpful-btn:hover {
-            background: #667eea;
-            color: white;
-            border-color: #667eea;
-        }
-
-        /* Companies Grid */
-        .companies-section {
-            margin: 30px auto;
-        }
-
-        .companies-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 25px;
-        }
-
-        .company-card {
-            background: white;
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            transition: transform 0.3s, box-shadow 0.3s;
-            cursor: pointer;
-        }
-
-        .company-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        }
-
-        .company-card-header {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .company-card-logo {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 20px;
-        }
-
-        .company-card h3 {
-            color: #333;
-            font-size: 18px;
-            margin-bottom: 5px;
-        }
-
-        .company-card p {
-            color: #888;
-            font-size: 13px;
-        }
-
-        .company-stats {
-            display: flex;
-            justify-content: space-between;
-            padding-top: 15px;
-            border-top: 1px solid #e0e0e0;
-        }
-
-        .company-stat {
-            text-align: center;
-        }
-
-        .company-stat-value {
-            font-size: 20px;
-            font-weight: bold;
-            color: #667eea;
-        }
-
-        .company-stat-label {
-            font-size: 12px;
-            color: #888;
-        }
-
-        /* Footer */
-        footer {
-            background: white;
-            padding: 40px 0;
-            margin-top: 50px;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            text-align: center;
-            color: #666;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin: 20px 0;
-        }
-
-        .footer-links a {
-            color: #667eea;
-            text-decoration: none;
-        }
-
-        .footer-links a:hover {
-            text-decoration: underline;
-        }
-
-        /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal.active {
-            display: flex;
-        }
-
-        .modal-content {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            max-width: 600px;
-            width: 90%;
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
-        }
-
-        .modal-header h2 {
-            color: #333;
-            font-size: 28px;
-        }
-
-        .close-btn {
-            background: none;
-            border: none;
-            font-size: 28px;
-            cursor: pointer;
-            color: #888;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            color: #333;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 12px 15px;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            font-size: 16px;
-            outline: none;
-            transition: border-color 0.3s;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            border-color: #667eea;
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .rating-input {
-            display: flex;
-            gap: 10px;
-        }
-
-        .rating-input .star {
-            font-size: 30px;
-            cursor: pointer;
-            color: #e0e0e0;
-            transition: color 0.3s;
-        }
-
-        .rating-input .star.active {
-            color: #ffc107;
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 28px;
-            }
-
-            .search-box {
-                flex-direction: column;
-            }
-
-            nav ul {
-                display: none;
-            }
-
-            .header-content {
-                flex-wrap: wrap;
-                gap: 15px;
-            }
-        }
-    </style>
+    <title>WorkCulture - Ажлын байрны уур амьсгалын платформ</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="header-content">
-            <div class="logo">Work<span>Culture</span></div>
-            <nav>
-                <ul>
-                    <li><a href="#home">Нүүр</a></li>
-                    <li><a href="#companies">Компаниуд</a></li>
-                    <li><a href="#reviews">Сэтгэгдлүүд</a></li>
-                    <li><a href="#about">Бидний тухай</a></li>
-                </ul>
-            </nav>
-            <button class="btn-primary" onclick="openModal()">Сэтгэгдэл бичих</button>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <span class="logo-icon">◈</span>
+                <span class="logo-text">WorkCulture</span>
+            </a>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home" class="nav-link active">Нүүр</a></li>
+                <li><a href="#reviews" class="nav-link">Сэтгэгдлүүд</a></li>
+                <li><a href="#companies" class="nav-link">Компаниуд</a></li>
+                <li><a href="#about" class="nav-link">Бидний тухай</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <button class="btn btn-outline" id="loginBtn">Нэвтрэх</button>
+                <button class="btn btn-primary" id="writeReviewBtn">
+                    <span class="btn-icon">✎</span>
+                    Сэтгэгдэл бичих
+                </button>
+            </div>
+            
+            <button class="mobile-toggle" id="mobileToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
-    </header>
+    </nav>
 
-    <div class="container">
-        <!-- Hero Section -->
-        <section class="hero" id="home">
-            <h1>Аж ахуйн нэгжийн <span>дотоод уур амьсгалыг</span> мэдэж авна уу</h1>
-            <p>Ажилд орохоосоо өмнө тухайн компанийн уур амьсгал, хүмүүсийн хоорондын хандлагыг мэдэх боломжтой. Одоо ажиллаж буй болон ажиллаж байсан хүмүүсийн жинхэнэ сэтгэгдлүүд.</p>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg-pattern"></div>
+        <div class="container hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-dot"></span>
+                    Монголын анхны ажлын байрны үнэлгээний платформ
+                </div>
+                
+                <h1 class="hero-title">
+                    Ажлын байрны <br>
+                    <span class="gradient-text">бодит үнэн</span>-ийг мэд
+                </h1>
+                
+                <p class="hero-subtitle">
+                    Компанийн дотоод уур амьсгал, ажилтнуудын сэтгэгдлийг урьдчилан мэдэж, 
+                    зөв шийдвэр гарга. Ажилд орохоосоо өмнө таныг юу хүлээж байгааг олж мэд.
+                </p>
+                
+                <div class="hero-search">
+                    <div class="search-box">
+                        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                        </svg>
+                        <input type="text" placeholder="Компани хайх..." id="companySearch" class="search-input">
+                        <button class="search-btn">Хайх</button>
+                    </div>
+                    <div class="search-tags">
+                        <span class="tag">IT & Технологи</span>
+                        <span class="tag">Банк & Санхүү</span>
+                        <span class="tag">Уул уурхай</span>
+                        <span class="tag">Худалдаа</span>
+                    </div>
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Компани</div>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <div class="stat-number">12,000+</div>
+                        <div class="stat-label">Сэтгэгдэл</div>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <div class="stat-number">50,000+</div>
+                        <div class="stat-label">Хэрэглэгч</div>
+                    </div>
+                </div>
+            </div>
             
-            <div class="search-box">
-                <input type="text" placeholder="Компани хайх..." id="searchInput">
-                <button class="btn-primary" onclick="searchCompanies()">Хайх</button>
+            <div class="hero-visual">
+                <div class="review-card-floating review-card-1">
+                    <div class="review-card-header">
+                        <div class="company-logo tech">T</div>
+                        <div class="review-meta">
+                            <div class="company-name">TechCorp Mongolia</div>
+                            <div class="review-rating">
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star">★</span>
+                                <span class="rating-score">4.2</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-preview">"Маш сайн багийн уур амьсгалтай, удирдлагууд нь ажилтнуудаа дэмждэг..."</p>
+                    <div class="review-footer">
+                        <span class="reviewer-role">Програм хангамжийн инженер</span>
+                        <span class="review-time">2 долоо хоногийн өмнө</span>
+                    </div>
+                </div>
+                
+                <div class="review-card-floating review-card-2">
+                    <div class="review-card-header">
+                        <div class="company-logo finance">B</div>
+                        <div class="review-meta">
+                            <div class="company-name">Trade & Development Bank</div>
+                            <div class="review-rating">
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                                <span class="rating-score">3.5</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-preview">"Цалин сайн боловч ачаалал их, амралтын өдрүүдээр ажиллуулах тохиолдол бий..."</p>
+                    <div class="review-footer">
+                        <span class="reviewer-role">Санхүүгийн мэргэжилтэн</span>
+                        <span class="review-time">1 сарын өмнө</span>
+                    </div>
+                </div>
+                
+                <div class="review-card-floating review-card-3">
+                    <div class="review-card-header">
+                        <div class="company-logo mining">M</div>
+                        <div class="review-meta">
+                            <div class="company-name">Oyu Tolgoi LLC</div>
+                            <div class="review-rating">
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="rating-score">4.8</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-preview">"Олон улсын түвшний компани, хөгжих боломж элбэг..."</p>
+                    <div class="review-footer">
+                        <span class="reviewer-role">Уул уурхайн инженер</span>
+                        <span class="review-time">3 долоо хоногийн өмнө</span>
+                    </div>
+                </div>
             </div>
-        </section>
+        </div>
+        
+        <div class="hero-wave">
+            <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+                <path d="M0,64 C480,120 960,0 1440,64 L1440,120 L0,120 Z" fill="var(--surface)"></path>
+            </svg>
+        </div>
+    </section>
 
-        <!-- Stats Section -->
-        <section class="stats">
-            <div class="stat-card">
-                <div class="stat-number">500+</div>
-                <div class="stat-label">Компани</div>
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Яагаад WorkCulture?</h2>
+                <p class="section-subtitle">Ажил мэргэжил сонгоход тань туслах гол шалтгаанууд</p>
             </div>
-            <div class="stat-card">
-                <div class="stat-number">12,000+</div>
-                <div class="stat-label">Сэтгэгдэл</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">50,000+</div>
-                <div class="stat-label">Хэрэглэгч</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">95%</div>
-                <div class="stat-label">Итгэмжлэл</div>
-            </div>
-        </section>
-
-        <!-- Reviews Section -->
-        <section class="reviews-section" id="reviews">
-            <h2 class="section-title">Сүүлийн үеийн сэтгэгдлүүд</h2>
             
-            <div class="review-card">
-                <div class="review-header">
-                    <div class="company-info">
-                        <div class="company-logo">T</div>
-                        <div class="company-details">
-                            <h3>Tech Solutions LLC</h3>
-                            <p>Улаанбаатар, Монгол | Технологи</p>
-                        </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
                     </div>
-                    <div class="rating">
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star empty">☆</span>
-                    </div>
+                    <h3 class="feature-title">Бодит сэтгэгдлүүд</h3>
+                    <p class="feature-desc">
+                        Одоо ажиллаж буй болон ажиллаж байсан ажилтнуудын жинхэнэ сэтгэгдлүүд. 
+                        Баталгаажсан хэрэглэгчдийн үнэн зөв мэдээлэл.
+                    </p>
                 </div>
-                <div class="review-tags">
-                    <span class="tag positive">✓ Сайн цалин</span>
-                    <span class="tag positive">✓ Уян хатан цаг</span>
-                    <span class="tag negative">✗ Хэт их ачаалал</span>
-                </div>
-                <p class="review-content">
-                    Компанийн уур амьсгал маш сайн. Багийнхан бие биеэ дэмждэг, удирдлагууд нь сонсдог. Цалин салбартаа өрсөлдөх чадвартай. Гэхдээ зарим төслийн үеэр хэт их ачаалалтай ажиллах шаардлага гардаг. Ерөнхийдөө хөгжих боломж ихтэй компани.
-                </p>
-                <div class="review-meta">
-                    <div class="reviewer-info">
-                        <div class="avatar">Б</div>
-                        <span>Батбаяр - Програм хөгжүүлэгч (Одоо ажиллаж байна)</span>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M12 16v-4"></path>
+                            <path d="M12 8h.01"></path>
+                        </svg>
                     </div>
-                    <button class="helpful-btn" onclick="toggleHelpful(this)">
-                        👍 Тустай (24)
-                    </button>
+                    <h3 class="feature-title">Дэлгэрэнгүй мэдээлэл</h3>
+                    <p class="feature-desc">
+                        Цалин, урамшуулал, ажлын цаг, даатгал, хөгжих боломж зэрэг 
+                        нарийвчилсан мэдээллээр хангана.
+                    </p>
                 </div>
-            </div>
-
-            <div class="review-card">
-                <div class="review-header">
-                    <div class="company-info">
-                        <div class="company-logo" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">F</div>
-                        <div class="company-details">
-                            <h3>Finance Group</h3>
-                            <p>Улаанбаатар, Монгол | Санхүү</p>
-                        </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
                     </div>
-                    <div class="rating">
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star empty">☆</span>
-                        <span class="star empty">☆</span>
-                    </div>
+                    <h3 class="feature-title">Хамтын нийгэмлэг</h3>
+                    <p class="feature-desc">
+                        Мэргэжил нэгтнүүдтэйгээ холбогдож, зөвлөгөө солилцож, 
+                        ажлын боломжуудыг хуваалцана.
+                    </p>
                 </div>
-                <div class="review-tags">
-                    <span class="tag positive">✓ Тогтвортой ажил</span>
-                    <span class="tag negative">✗ Хуучирсан систем</span>
-                    <span class="tag negative">✗ Дэвших боломж бага</span>
-                </div>
-                <p class="review-content">
-                    Тогтвортой ажиллах боломжтой ч хөгжих боломж хязгаарлагдмал. Шинэ технологи сурах боломж бага. Удирдлагууд хуучирсан арга барил баримталдаг. Цалин дундаж түвшинд. Анхны ажил маань байсан тул туршлага хуримтлуулахад сайн байсан.
-                </p>
-                <div class="review-meta">
-                    <div class="reviewer-info">
-                        <div class="avatar" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">С</div>
-                        <span>Сарнай - Санхүүч (Ажилласан: 2022-2024)</span>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
                     </div>
-                    <button class="helpful-btn" onclick="toggleHelpful(this)">
-                        👍 Тустай (15)
-                    </button>
+                    <h3 class="feature-title">Шударга үнэлгээ</h3>
+                    <p class="feature-desc">
+                        Компаниудын нэр хүндийг ил тод харуулж, 
+                        ажилтандаа ээлтэй орчныг бүрдүүлэхэд урамшуулна.
+                    </p>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div class="review-card">
-                <div class="review-header">
-                    <div class="company-info">
-                        <div class="company-logo" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">S</div>
-                        <div class="company-details">
-                            <h3>StartUp Hub</h3>
-                            <p>Улаанбаатар, Монгол | Стартап</p>
-                        </div>
-                    </div>
-                    <div class="rating">
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                    </div>
+    <!-- Reviews Section -->
+    <section class="reviews-section" id="reviews">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-header-content">
+                    <h2 class="section-title">Сүүлийн үеийн сэтгэгдлүүд</h2>
+                    <p class="section-subtitle">Монголын компаниудын талаарх бодит үнэлгээнүүд</p>
                 </div>
-                <div class="review-tags">
-                    <span class="tag positive">✓ Шинэлэг орчин</span>
-                    <span class="tag positive">✓ Хөгжих боломж</span>
-                    <span class="tag positive">✓ Нээлттэй соёл</span>
-                </div>
-                <p class="review-content">
-                    Маш динамик, шинэлэг орчин. Өөрийн санаачилгыг дэмждэг. Алдаанаас суралцах боломж олгодог. Цалин бага ч суралцах боломж их. Залуусын баг тул энерги өндөр. Ирээдүйд том компани болох потенциалтай.
-                </p>
-                <div class="review-meta">
-                    <div class="reviewer-info">
-                        <div class="avatar" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">Г</div>
-                        <span>Ганболд - Маркетинг (Одоо ажиллаж байна)</span>
-                    </div>
-                    <button class="helpful-btn" onclick="toggleHelpful(this)">
-                        👍 Тустай (32)
-                    </button>
+                
+                <div class="filter-tabs">
+                    <button class="filter-tab active" data-filter="all">Бүгд</button>
+                    <button class="filter-tab" data-filter="positive">Эерэг</button>
+                    <button class="filter-tab" data-filter="neutral">Саармаг</button>
+                    <button class="filter-tab" data-filter="negative">Сөрөг</button>
                 </div>
             </div>
-        </section>
+            
+            <div class="reviews-grid" id="reviewsGrid">
+                <!-- Reviews will be dynamically loaded -->
+            </div>
+            
+            <div class="load-more-container">
+                <button class="btn btn-outline btn-large" id="loadMoreReviews">
+                    Өөр сэтгэгдлүүдийг харах
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 5v14"></path>
+                        <path d="m19 12-7 7-7-7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
 
-        <!-- Companies Section -->
-        <section class="companies-section" id="companies">
-            <h2 class="section-title">Популяр компаниуд</h2>
-            <div class="companies-grid">
-                <div class="company-card" onclick="showCompanyDetails('Tech Solutions LLC')">
-                    <div class="company-card-header">
-                        <div class="company-card-logo">T</div>
-                        <div>
-                            <h3>Tech Solutions LLC</h3>
-                            <p>Технологи | 150+ ажилтан</p>
-                        </div>
-                    </div>
-                    <div class="company-stats">
-                        <div class="company-stat">
-                            <div class="company-stat-value">4.2</div>
-                            <div class="company-stat-label">Үнэлгээ</div>
-                        </div>
-                        <div class="company-stat">
-                            <div class="company-stat-value">89</div>
-                            <div class="company-stat-label">Сэтгэгдэл</div>
-                        </div>
-                        <div class="company-stat">
-                            <div class="company-stat-value">92%</div>
-                            <div class="company-stat-label">Зөвлөх</div>
-                        </div>
+    <!-- Companies Section -->
+    <section class="companies-section" id="companies">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Топ компаниуд</h2>
+                <p class="section-subtitle">Хамгийн өндөр үнэлгээ авч буй байгууллагууд</p>
+            </div>
+            
+            <div class="companies-grid" id="companiesGrid">
+                <!-- Companies will be dynamically loaded -->
+            </div>
+            
+            <div class="companies-cta">
+                <div class="cta-content">
+                    <h3>Таны компани энд байхгүй байна уу?</h3>
+                    <p>Компаниа бүртгүүлж, ажилтнуудынхаа сэтгэгдлийг сонсоорой</p>
+                </div>
+                <button class="btn btn-primary btn-large">Компани бүртгүүлэх</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Хэрхэн ашиглах вэ?</h2>
+                <p class="section-subtitle">Ердөө 3 алхмаар эхлүүлнэ</p>
+            </div>
+            
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Компани хайх</h3>
+                        <p>Сонирхож буй компанийнхаа нэрээр хайлт хийнэ</p>
                     </div>
                 </div>
-
-                <div class="company-card" onclick="showCompanyDetails('Finance Group')">
-                    <div class="company-card-header">
-                        <div class="company-card-logo" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">F</div>
-                        <div>
-                            <h3>Finance Group</h3>
-                            <p>Санхүү | 300+ ажилтан</p>
-                        </div>
-                    </div>
-                    <div class="company-stats">
-                        <div class="company-stat">
-                            <div class="company-stat-value">3.5</div>
-                            <div class="company-stat-label">Үнэлгээ</div>
-                        </div>
-                        <div class="company-stat">
-                            <div class="company-stat-value">156</div>
-                            <div class="company-stat-label">Сэтгэгдэл</div>
-                        </div>
-                        <div class="company-stat">
-                            <div class="company-stat-value">68%</div>
-                            <div class="company-stat-label">Зөвлөх</div>
-                        </div>
+                
+                <div class="step-connector"></div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Сэтгэгдэл унших</h3>
+                        <p>Ажилтнуудын бодит сэтгэгдлүүдийг уншина</p>
                     </div>
                 </div>
-
-                <div class="company-card" onclick="showCompanyDetails('StartUp Hub')">
-                    <div class="company-card-header">
-                        <div class="company-card-logo" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">S</div>
-                        <div>
-                            <h3>StartUp Hub</h3>
-                            <p>Стартап | 25+ ажилтан</p>
-                        </div>
-                    </div>
-                    <div class="company-stats">
-                        <div class="company-stat">
-                            <div class="company-stat-value">4.8</div>
-                            <div class="company-stat-label">Үнэлгээ</div>
-                        </div>
-                        <div class="company-stat">
-                            <div class="company-stat-value">34</div>
-                            <div class="company-stat-label">Сэтгэгдэл</div>
-                        </div>
-                        <div class="company-stat">
-                            <div class="company-stat-value">97%</div>
-                            <div class="company-stat-label">Зөвлөх</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="company-card" onclick="showCompanyDetails('Green Energy Co')">
-                    <div class="company-card-header">
-                        <div class="company-card-logo" style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);">G</div>
-                        <div>
-                            <h3>Green Energy Co</h3>
-                            <p>Эрчим хүч | 200+ ажилтан</p>
-                        </div>
-                    </div>
-                    <div class="company-stats">
-                        <div class="company-stat">
-                            <div class="company-stat-value">4.0</div>
-                            <div class="company-stat-label">Үнэлгээ</div>
-                        </div>
-                        <div class="company-stat">
-                            <div class="company-stat-value">67</div>
-                            <div class="company-stat-label">Сэтгэгдэл</div>
-                        </div>
-                        <div class="company-stat">
-                            <div class="company-stat-value">85%</div>
-                            <div class="company-stat-label">Зөвлөх</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="company-card" onclick="showCompanyDetails('Media Plus')">
-                    <div class="company-card-header">
-                        <div class="company-card-logo" style="background: linear-gradient(135deg, #fc4a1a 0%, #f7b733 100%);">M</div>
-                        <div>
-                            <h3>Media Plus</h3>
-                            <p>Медиа | 80+ ажилтан</p>
-                        </div>
-                    </div>
-                    <div class="company-stats">
-                        <div class="company-stat">
-                            <div class="company-stat-value">3.8</div>
-                            <div class="company-stat-label">Үнэлгээ</div>
-                        </div>
-                        <div class="company-stat">
-                            <div class="company-stat-value">45</div>
-                            <div class="company-stat-label">Сэтгэгдэл</div>
-                        </div>
-                        <div class="company-stat">
-                            <div class="company-stat-value">76%</div>
-                            <div class="company-stat-label">Зөвлөх</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="company-card" onclick="showCompanyDetails('Build Corp')">
-                    <div class="company-card-header">
-                        <div class="company-card-logo" style="background: linear-gradient(135deg, #868f96 0%, #596164 100%);">B</div>
-                        <div>
-                            <h3>Build Corp</h3>
-                            <p>Барилга | 500+ ажилтан</p>
-                        </div>
-                    </div>
-                    <div class="company-stats">
-                        <div class="company-stat">
-                            <div class="company-stat-value">3.6</div>
-                            <div class="company-stat-label">Үнэлгээ</div>
-                        </div>
-                        <div class="company-stat">
-                            <div class="company-stat-value">123</div>
-                            <div class="company-stat-label">Сэтгэгдэл</div>
-                        </div>
-                        <div class="company-stat">
-                            <div class="company-stat-value">71%</div>
-                            <div class="company-stat-label">Зөвлөх</div>
-                        </div>
+                
+                <div class="step-connector"></div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Шийдвэр гаргах</h3>
+                        <p>Мэдээлэлд суурилсан зөв шийдвэр гаргана</p>
                     </div>
                 </div>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-card">
+                <div class="cta-left">
+                    <h2>Өөрийн сэтгэгдлийг үлдээгээрэй</h2>
+                    <p>Таны туршлага бусдад тусална. Компаниудыг ил тод, шударга байлгахад хувь нэмрээ оруулна.</p>
+                    <ul class="cta-benefits">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Нэр нууцлах боломжтой
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Хурдан, хялбар
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Бусдад тусална
+                        </li>
+                    </ul>
+                </div>
+                <div class="cta-right">
+                    <button class="btn btn-white btn-large" id="ctaWriteReview">Сэтгэгдэл бичих</button>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
-    <footer id="about">
-        <div class="footer-content">
-            <div class="logo" style="margin-bottom: 20px;">Work<span>Culture</span></div>
-            <p>Аж ахуйн нэгжийн уур амьсгалын талаарх шударга мэдээллийг түгээх зорилготой платформ</p>
-            <div class="footer-links">
-                <a href="#">Нууцлалын бодлого</a>
-                <a href="#">Хэрэглэх нөхцөл</a>
-                <a href="#">Холбоо барих</a>
-                <a href="#">Бидний тухай</a>
+    <footer class="footer" id="about">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="footer-logo">
+                        <span class="logo-icon">◈</span>
+                        <span class="logo-text">WorkCulture</span>
+                    </a>
+                    <p class="footer-desc">
+                        Монголын ажлын байрны уур амьсгалын талаарх бодит мэдээллийг 
+                        нэг дор цуглуулсан анхны платформ.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                <rect x="2" y="9" width="4" height="12"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Компани</h4>
+                    <ul>
+                        <li><a href="#">Бидний тухай</a></li>
+                        <li><a href="#">Баг</a></li>
+                        <li><a href="#">Ажиллах ваканси</a></li>
+                        <li><a href="#">Хэвлэлийн мэдээ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Тусламж</h4>
+                    <ul>
+                        <li><a href="#">Төв</a></li>
+                        <li><a href="#">Асуулт хариулт</a></li>
+                        <li><a href="#">Холбоо барих</a></li>
+                        <li><a href="#">Санал гомдол</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Хууль</h4>
+                    <ul>
+                        <li><a href="#">Нууцлалын бодлого</a></li>
+                        <li><a href="#">Үйлчилгээний нөхцөл</a></li>
+                        <li><a href="#">Кукигийн бодлого</a></li>
+                        <li><a href="#">Зохиогчийн эрх</a></li>
+                    </ul>
+                </div>
             </div>
-            <p>&copy; 2025 WorkCulture. Бүх эрх хуулиар хамгаалагдсан.</p>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 WorkCulture. Бүх эрх хуулиар хамгаалагдсан.</p>
+                <p class="footer-tagline">Ажлын байрны бодит үнэн 🇲🇳</p>
+            </div>
         </div>
     </footer>
 
     <!-- Review Modal -->
-    <div class="modal" id="reviewModal">
-        <div class="modal-content">
+    <div class="modal-overlay" id="reviewModal">
+        <div class="modal">
             <div class="modal-header">
-                <h2>Сэтгэгдэл бичих</h2>
-                <button class="close-btn" onclick="closeModal()">&times;</button>
+                <h3>Шинэ сэтгэгдэл үлдээх</h3>
+                <button class="modal-close" id="modalClose">&times;</button>
             </div>
-            <form id="reviewForm" onsubmit="submitReview(event)">
+            
+            <form class="review-form" id="reviewForm">
                 <div class="form-group">
-                    <label>Компанийн нэр</label>
-                    <input type="text" placeholder="Компанийн нэрээ оруулна уу" required>
+                    <label for="companyName">Компанийн нэр *</label>
+                    <input type="text" id="companyName" required placeholder="Жишээ: TechCorp Mongolia">
                 </div>
-                <div class="form-group">
-                    <label>Таны албан тушаал</label>
-                    <input type="text" placeholder="Жишээ: Програм хөгжүүлэгч" required>
-                </div>
-                <div class="form-group">
-                    <label>Ажилласан хугацаа</label>
-                    <select required>
-                        <option value="">Сонгоно уу</option>
-                        <option value="current">Одоо ажиллаж байна</option>
-                        <option value="past">Ажиллаж байсан</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Үнэлгээ</label>
-                    <div class="rating-input" id="starRating">
-                        <span class="star" onclick="setRating(1)">★</span>
-                        <span class="star" onclick="setRating(2)">★</span>
-                        <span class="star" onclick="setRating(3)">★</span>
-                        <span class="star" onclick="setRating(4)">★</span>
-                        <span class="star" onclick="setRating(5)">★</span>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="jobTitle">Албан тушаал *</label>
+                        <input type="text" id="jobTitle" required placeholder="Жишээ: Програмист">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="employmentStatus">Ажилласан байдал *</label>
+                        <select id="employmentStatus" required>
+                            <option value="">Сонгох...</option>
+                            <option value="current">Одоо ажиллаж байна</option>
+                            <option value="former">Өмнө нь ажиллаж байсан</option>
+                            <option value="intern">Дадлага хийж байсан</option>
+                        </select>
                     </div>
                 </div>
+                
                 <div class="form-group">
-                    <label>Сэтгэгдэл</label>
-                    <textarea placeholder="Таны туршлага, компанийн уур амьсгалын талаар бичнэ үү..." required></textarea>
+                    <label>Үнэлгээ *</label>
+                    <div class="rating-input" id="ratingInput">
+                        <span class="rating-star" data-value="1">★</span>
+                        <span class="rating-star" data-value="2">★</span>
+                        <span class="rating-star" data-value="3">★</span>
+                        <span class="rating-star" data-value="4">★</span>
+                        <span class="rating-star" data-value="5">★</span>
+                    </div>
+                    <input type="hidden" id="ratingValue" required>
                 </div>
+                
                 <div class="form-group">
-                    <label>Давуу талууд (таслалаар тусгаарлана)</label>
-                    <input type="text" placeholder="Жишээ: Сайн цалин, Уян хатан цаг">
+                    <label for="reviewText">Сэтгэгдэл *</label>
+                    <textarea id="reviewText" rows="5" required placeholder="Таны туршлагыг дэлгэрэнгүй бичнэ үү..."></textarea>
+                    <div class="char-count"><span id="charCount">0</span> / 500</div>
                 </div>
-                <div class="form-group">
-                    <label>Сул талууд (таслалаар тусгаарлана)</label>
-                    <input type="text" placeholder="Жишээ: Хэт их ачаалал, Дэвших боломж бага">
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="pros">Давуу тал</label>
+                        <input type="text" id="pros" placeholder="Сайн талууд...">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="cons">Сул тал</label>
+                        <input type="text" id="cons" placeholder="Сайжруулах шаардлагатай зүйлс...">
+                    </div>
                 </div>
-                <button type="submit" class="btn-primary" style="width: 100%;">Илгээх</button>
+                
+                <div class="form-group checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="anonymous">
+                        <span class="checkmark"></span>
+                        Нэр нууцлах
+                    </label>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="btn btn-outline" id="cancelReview">Буцах</button>
+                    <button type="submit" class="btn btn-primary">Илгээх</button>
+                </div>
             </form>
         </div>
     </div>
 
-    <script>
-        // Modal functions
-        function openModal() {
-            document.getElementById('reviewModal').classList.add('active');
-        }
-
-        function closeModal() {
-            document.getElementById('reviewModal').classList.remove('active');
-        }
-
-        // Close modal when clicking outside
-        document.getElementById('reviewModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeModal();
-            }
-        });
-
-        // Rating system
-        let currentRating = 0;
-        function setRating(rating) {
-            currentRating = rating;
-            const stars = document.querySelectorAll('#starRating .star');
-            stars.forEach((star, index) => {
-                if (index < rating) {
-                    star.classList.add('active');
-                } else {
-                    star.classList.remove('active');
-                }
-            });
-        }
-
-        // Helpful button toggle
-        function toggleHelpful(btn) {
-            const text = btn.innerHTML;
-            if (text.includes('Тустай')) {
-                const count = parseInt(text.match(/\d+/)[0]);
-                btn.innerHTML = `👍 Тустай (${count + 1})`;
-                btn.style.background = '#667eea';
-                btn.style.color = 'white';
-                btn.style.borderColor = '#667eea';
-            }
-        }
-
-        // Search function
-        function searchCompanies() {
-            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-            const companyCards = document.querySelectorAll('.company-card');
-            
-            companyCards.forEach(card => {
-                const companyName = card.querySelector('h3').textContent.toLowerCase();
-                if (companyName.includes(searchTerm)) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
-
-        // Show company details
-        function showCompanyDetails(companyName) {
-            alert(companyName + ' компанийн дэлгэрэнгүй мэдээлэл удахгүй нэмэгдэнэ!');
-        }
-
-        // Submit review
-        function submitReview(event) {
-            event.preventDefault();
-            alert('Таны сэтгэгдлийг амжилттай илгээлээ! Шалгасны дараа нийтлэгдэнэ.');
-            closeModal();
-            document.getElementById('reviewForm').reset();
-            currentRating = 0;
-            document.querySelectorAll('#starRating .star').forEach(star => {
-                star.classList.remove('active');
-            });
-        }
-
-        // Enter key to search
-        document.getElementById('searchInput').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                searchCompanies();
-            }
-        });
-    </script>
+    <script src="js/main.js"></script>
 </body>
 </html>
