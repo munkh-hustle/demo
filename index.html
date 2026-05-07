@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorkCulture - Ажлын байрны уур амьсгалын платформ</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <span class="logo-icon">◈</span>
+                <span class="logo-text">WorkCulture</span>
+            </a>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home" class="nav-link active">Нүүр</a></li>
+                <li><a href="#reviews" class="nav-link">Сэтгэгдлүүд</a></li>
+                <li><a href="#companies" class="nav-link">Компаниуд</a></li>
+                <li><a href="#about" class="nav-link">Бидний тухай</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <button class="btn btn-outline" id="loginBtn">Нэвтрэх</button>
+                <button class="btn btn-primary" id="writeReviewBtn">
+                    <span class="btn-icon">✎</span>
+                    Сэтгэгдэл бичих
+                </button>
+            </div>
+            
+            <button class="mobile-toggle" id="mobileToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg-pattern"></div>
+        <div class="container hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-dot"></span>
+                    Монголын анхны ажлын байрны үнэлгээний платформ
+                </div>
+                
+                <h1 class="hero-title">
+                    Ажлын байрны <br>
+                    <span class="gradient-text">бодит үнэн</span>-ийг мэд
+                </h1>
+                
+                <p class="hero-subtitle">
+                    Компанийн дотоод уур амьсгал, ажилтнуудын сэтгэгдлийг урьдчилан мэдэж, 
+                    зөв шийдвэр гарга. Ажилд орохоосоо өмнө таныг юу хүлээж байгааг олж мэд.
+                </p>
+                
+                <div class="hero-search">
+                    <div class="search-box">
+                        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                        </svg>
+                        <input type="text" placeholder="Компани хайх..." id="companySearch" class="search-input">
+                        <button class="search-btn">Хайх</button>
+                    </div>
+                    <div class="search-tags">
+                        <span class="tag">IT & Технологи</span>
+                        <span class="tag">Банк & Санхүү</span>
+                        <span class="tag">Уул уурхай</span>
+                        <span class="tag">Худалдаа</span>
+                    </div>
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Компани</div>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <div class="stat-number">12,000+</div>
+                        <div class="stat-label">Сэтгэгдэл</div>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <div class="stat-number">50,000+</div>
+                        <div class="stat-label">Хэрэглэгч</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-visual">
+                <div class="review-card-floating review-card-1">
+                    <div class="review-card-header">
+                        <div class="company-logo tech">T</div>
+                        <div class="review-meta">
+                            <div class="company-name">TechCorp Mongolia</div>
+                            <div class="review-rating">
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star">★</span>
+                                <span class="rating-score">4.2</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-preview">"Маш сайн багийн уур амьсгалтай, удирдлагууд нь ажилтнуудаа дэмждэг..."</p>
+                    <div class="review-footer">
+                        <span class="reviewer-role">Програм хангамжийн инженер</span>
+                        <span class="review-time">2 долоо хоногийн өмнө</span>
+                    </div>
+                </div>
+                
+                <div class="review-card-floating review-card-2">
+                    <div class="review-card-header">
+                        <div class="company-logo finance">B</div>
+                        <div class="review-meta">
+                            <div class="company-name">Trade & Development Bank</div>
+                            <div class="review-rating">
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                                <span class="rating-score">3.5</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-preview">"Цалин сайн боловч ачаалал их, амралтын өдрүүдээр ажиллуулах тохиолдол бий..."</p>
+                    <div class="review-footer">
+                        <span class="reviewer-role">Санхүүгийн мэргэжилтэн</span>
+                        <span class="review-time">1 сарын өмнө</span>
+                    </div>
+                </div>
+                
+                <div class="review-card-floating review-card-3">
+                    <div class="review-card-header">
+                        <div class="company-logo mining">M</div>
+                        <div class="review-meta">
+                            <div class="company-name">Oyu Tolgoi LLC</div>
+                            <div class="review-rating">
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="rating-score">4.8</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-preview">"Олон улсын түвшний компани, хөгжих боломж элбэг..."</p>
+                    <div class="review-footer">
+                        <span class="reviewer-role">Уул уурхайн инженер</span>
+                        <span class="review-time">3 долоо хоногийн өмнө</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="hero-wave">
+            <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+                <path d="M0,64 C480,120 960,0 1440,64 L1440,120 L0,120 Z" fill="var(--surface)"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Яагаад WorkCulture?</h2>
+                <p class="section-subtitle">Ажил мэргэжил сонгоход тань туслах гол шалтгаанууд</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Бодит сэтгэгдлүүд</h3>
+                    <p class="feature-desc">
+                        Одоо ажиллаж буй болон ажиллаж байсан ажилтнуудын жинхэнэ сэтгэгдлүүд. 
+                        Баталгаажсан хэрэглэгчдийн үнэн зөв мэдээлэл.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M12 16v-4"></path>
+                            <path d="M12 8h.01"></path>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Дэлгэрэнгүй мэдээлэл</h3>
+                    <p class="feature-desc">
+                        Цалин, урамшуулал, ажлын цаг, даатгал, хөгжих боломж зэрэг 
+                        нарийвчилсан мэдээллээр хангана.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Хамтын нийгэмлэг</h3>
+                    <p class="feature-desc">
+                        Мэргэжил нэгтнүүдтэйгээ холбогдож, зөвлөгөө солилцож, 
+                        ажлын боломжуудыг хуваалцана.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Шударга үнэлгээ</h3>
+                    <p class="feature-desc">
+                        Компаниудын нэр хүндийг ил тод харуулж, 
+                        ажилтандаа ээлтэй орчныг бүрдүүлэхэд урамшуулна.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews-section" id="reviews">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-header-content">
+                    <h2 class="section-title">Сүүлийн үеийн сэтгэгдлүүд</h2>
+                    <p class="section-subtitle">Монголын компаниудын талаарх бодит үнэлгээнүүд</p>
+                </div>
+                
+                <div class="filter-tabs">
+                    <button class="filter-tab active" data-filter="all">Бүгд</button>
+                    <button class="filter-tab" data-filter="positive">Эерэг</button>
+                    <button class="filter-tab" data-filter="neutral">Саармаг</button>
+                    <button class="filter-tab" data-filter="negative">Сөрөг</button>
+                </div>
+            </div>
+            
+            <div class="reviews-grid" id="reviewsGrid">
+                <!-- Reviews will be dynamically loaded -->
+            </div>
+            
+            <div class="load-more-container">
+                <button class="btn btn-outline btn-large" id="loadMoreReviews">
+                    Өөр сэтгэгдлүүдийг харах
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 5v14"></path>
+                        <path d="m19 12-7 7-7-7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Companies Section -->
+    <section class="companies-section" id="companies">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Топ компаниуд</h2>
+                <p class="section-subtitle">Хамгийн өндөр үнэлгээ авч буй байгууллагууд</p>
+            </div>
+            
+            <div class="companies-grid" id="companiesGrid">
+                <!-- Companies will be dynamically loaded -->
+            </div>
+            
+            <div class="companies-cta">
+                <div class="cta-content">
+                    <h3>Таны компани энд байхгүй байна уу?</h3>
+                    <p>Компаниа бүртгүүлж, ажилтнуудынхаа сэтгэгдлийг сонсоорой</p>
+                </div>
+                <button class="btn btn-primary btn-large">Компани бүртгүүлэх</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Хэрхэн ашиглах вэ?</h2>
+                <p class="section-subtitle">Ердөө 3 алхмаар эхлүүлнэ</p>
+            </div>
+            
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Компани хайх</h3>
+                        <p>Сонирхож буй компанийнхаа нэрээр хайлт хийнэ</p>
+                    </div>
+                </div>
+                
+                <div class="step-connector"></div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Сэтгэгдэл унших</h3>
+                        <p>Ажилтнуудын бодит сэтгэгдлүүдийг уншина</p>
+                    </div>
+                </div>
+                
+                <div class="step-connector"></div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Шийдвэр гаргах</h3>
+                        <p>Мэдээлэлд суурилсан зөв шийдвэр гаргана</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-card">
+                <div class="cta-left">
+                    <h2>Өөрийн сэтгэгдлийг үлдээгээрэй</h2>
+                    <p>Таны туршлага бусдад тусална. Компаниудыг ил тод, шударга байлгахад хувь нэмрээ оруулна.</p>
+                    <ul class="cta-benefits">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Нэр нууцлах боломжтой
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Хурдан, хялбар
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Бусдад тусална
+                        </li>
+                    </ul>
+                </div>
+                <div class="cta-right">
+                    <button class="btn btn-white btn-large" id="ctaWriteReview">Сэтгэгдэл бичих</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="about">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="footer-logo">
+                        <span class="logo-icon">◈</span>
+                        <span class="logo-text">WorkCulture</span>
+                    </a>
+                    <p class="footer-desc">
+                        Монголын ажлын байрны уур амьсгалын талаарх бодит мэдээллийг 
+                        нэг дор цуглуулсан анхны платформ.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                <rect x="2" y="9" width="4" height="12"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Компани</h4>
+                    <ul>
+                        <li><a href="#">Бидний тухай</a></li>
+                        <li><a href="#">Баг</a></li>
+                        <li><a href="#">Ажиллах ваканси</a></li>
+                        <li><a href="#">Хэвлэлийн мэдээ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Тусламж</h4>
+                    <ul>
+                        <li><a href="#">Төв</a></li>
+                        <li><a href="#">Асуулт хариулт</a></li>
+                        <li><a href="#">Холбоо барих</a></li>
+                        <li><a href="#">Санал гомдол</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Хууль</h4>
+                    <ul>
+                        <li><a href="#">Нууцлалын бодлого</a></li>
+                        <li><a href="#">Үйлчилгээний нөхцөл</a></li>
+                        <li><a href="#">Кукигийн бодлого</a></li>
+                        <li><a href="#">Зохиогчийн эрх</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 WorkCulture. Бүх эрх хуулиар хамгаалагдсан.</p>
+                <p class="footer-tagline">Ажлын байрны бодит үнэн 🇲🇳</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Review Modal -->
+    <div class="modal-overlay" id="reviewModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Шинэ сэтгэгдэл үлдээх</h3>
+                <button class="modal-close" id="modalClose">&times;</button>
+            </div>
+            
+            <form class="review-form" id="reviewForm">
+                <div class="form-group">
+                    <label for="companyName">Компанийн нэр *</label>
+                    <input type="text" id="companyName" required placeholder="Жишээ: TechCorp Mongolia">
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="jobTitle">Албан тушаал *</label>
+                        <input type="text" id="jobTitle" required placeholder="Жишээ: Програмист">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="employmentStatus">Ажилласан байдал *</label>
+                        <select id="employmentStatus" required>
+                            <option value="">Сонгох...</option>
+                            <option value="current">Одоо ажиллаж байна</option>
+                            <option value="former">Өмнө нь ажиллаж байсан</option>
+                            <option value="intern">Дадлага хийж байсан</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Үнэлгээ *</label>
+                    <div class="rating-input" id="ratingInput">
+                        <span class="rating-star" data-value="1">★</span>
+                        <span class="rating-star" data-value="2">★</span>
+                        <span class="rating-star" data-value="3">★</span>
+                        <span class="rating-star" data-value="4">★</span>
+                        <span class="rating-star" data-value="5">★</span>
+                    </div>
+                    <input type="hidden" id="ratingValue" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="reviewText">Сэтгэгдэл *</label>
+                    <textarea id="reviewText" rows="5" required placeholder="Таны туршлагыг дэлгэрэнгүй бичнэ үү..."></textarea>
+                    <div class="char-count"><span id="charCount">0</span> / 500</div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="pros">Давуу тал</label>
+                        <input type="text" id="pros" placeholder="Сайн талууд...">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="cons">Сул тал</label>
+                        <input type="text" id="cons" placeholder="Сайжруулах шаардлагатай зүйлс...">
+                    </div>
+                </div>
+                
+                <div class="form-group checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="anonymous">
+                        <span class="checkmark"></span>
+                        Нэр нууцлах
+                    </label>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="btn btn-outline" id="cancelReview">Буцах</button>
+                    <button type="submit" class="btn btn-primary">Илгээх</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
